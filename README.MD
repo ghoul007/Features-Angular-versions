@@ -19,7 +19,7 @@ Why dont have a verion 3 ?
 * Animation features are separated from @angular/core to @angular/Animation
 * Else block in *ngIf introduced
 
-```Javascript
+```js
 <*ngIf=”yourCondition; else myFalsyTemplate">
 “<ng-template #myFalsyTemplate>Else Html</ng-template>”
 ```
@@ -79,6 +79,25 @@ export class MyService{}
 * Released on October 2018
 * CLI Prompts: The CLI will now prompt users as when running common commands likeng new or ng add @angular/material with the intend of getting aid for building a new project using SCSS.
 * Introduce a new Pipe called — KeyValuePipe
+```js
+@Component({
+  selector: 'keyvalue-pipe',
+  template: `<span>
+    <p>Object</p>
+    <div *ngFor="let item of object | keyvalue">
+      {{item.key}}:{{item.value}}
+    </div>
+    <p>Map</p>
+    <div *ngFor="let item of map | keyvalue">
+      {{item.key}}:{{item.value}}
+    </div>
+  </span>`
+})
+export class KeyValuePipeComponent {
+  object: {[key: number]: string} = {2: 'foo', 1: 'bar'};
+  map = new Map([[2, 'foo'], [1, 'bar']]);
+}
+```
 * Angular 7 now supporting to TypeScript 2.9.
 * Angular 7 added a new compiler — Compatibility Compiler (ngcc)
 * Added a new interface — DoBootstrap interface
