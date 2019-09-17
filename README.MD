@@ -74,3 +74,24 @@ export class MyService{}
 * It uses angular.json instead of .angular-cli.json
 * initial release of Angular Elements which gives us ability to use our angular components in other environments like a Vue.js application
 
+## Angular 7
+
+* Released on October 2018
+* CLI Prompts: The CLI will now prompt users as when running common commands likeng new or ng add @angular/material with the intend of getting aid for building a new project using SCSS.
+* Introduce a new Pipe called — KeyValuePipe
+* Angular 7 now supporting to TypeScript 2.9.
+* Angular 7 added a new compiler — Compatibility Compiler (ngcc)
+* Added a new interface — DoBootstrap interface
+* Added a new interface — UrlSegment[] to CanLoad interface
+
+## Angular 8
+* Releasing March/April 2019
+* Being smaller, faster and easier to use
+* Added Support for TypeScript 3.2
+* Added pathParamsOrQueryParamsChange mode for runGuardsAndResolvers in the Router
+* Allow passing state to routerLink Directives in the Router
+* Allow passing state to NavigationExtras in the Router
+* Added support for SASS
+* Resolve generated Sass/Less files to .css inputs
+* Added an ng-new command that builds the project with Bazel
+* Export NumberValueAccessor & RangeValueAccessor directives
