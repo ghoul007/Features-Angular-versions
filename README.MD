@@ -23,3 +23,54 @@ Why dont have a verion 3 ?
 <*ngIf=”yourCondition; else myFalsyTemplate">
 “<ng-template #myFalsyTemplate>Else Html</ng-template>”
 ```
+
+## Angular 5
+* Released November 2017
+* Build optimizer
+* Angular Universal
+* Decrease bundle size
+* Increased the standardization across all browsers: For internationalization we were depending on 'i18n'
+* HttpClient: until Angualar 4.3 @angular/HTTP was been used which is now depreciated and in Angular 5 a new module called HttpClientModule is introduced which comes under @angular/common/http package.
+* Few new Router Life-cycle Events being added in Angular 5
+```
+ActivationStart, ActivationEnd, ChildActivationStart, ChildActivationEnd, GuardsCheckStart, GuardsCheckEnd, ResolveStart and ResolveEnd.
+```
+* Angular 5 supports TypeScript 2.3 version.
+* compile Aot
+
+## Angular6
+* Released on April 2018
+* Dependency on RxJS 6
+* Remove support for  `template` tag and `ng-template` should be used.
+* Angular Material + CDK
+* Add providedIn property in injectable decorator. e.g:
+
+```Angular
+@Injectable({ providedIn: 'root'})
+export class MyService{}
+```
+* CLI Changes:
+  * ng update
+  * ng add ( e.g ng add @angular/material)
+
+* CLI + Material
+  * Material Sidenav
+
+  ```
+  ng generate @angular/material:material-nav — name=my-nav
+  ```
+  * Dashboard
+
+  ```
+  ng generate @angular/material:material-dashboard — name=my-dashboard
+  ```
+
+  * Datatable
+
+  ```
+  ng generate @angular/material:material-table — name=my-table
+  ```
+
+* It uses angular.json instead of .angular-cli.json
+* initial release of Angular Elements which gives us ability to use our angular components in other environments like a Vue.js application
+
