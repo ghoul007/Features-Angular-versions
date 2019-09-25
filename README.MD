@@ -101,7 +101,31 @@ export class KeyValuePipeComponent {
 * Angular 7 now supporting to TypeScript 2.9.
 * Angular 7 added a new compiler — Compatibility Compiler (ngcc)
 * Added a new interface — DoBootstrap interface
+
+```js
+class AppModule implements DoBootstrap {
+    ngDoBootstrap(appRef: ApplicationRef) {
+        appRef.bootstrap(AppComponent);
+    }
+}
+```
+
 * Added a new interface — UrlSegment[] to CanLoad interface
+
+```js
+ constructor(router: Router) {
+      const tree: UrlTree =
+        router.parseUrl('/team/33/(user/victor//support:help)?debug=true#fragment');
+      const f = tree.fragment; // return 'fragment'
+      const q = tree.queryParams; // returns {debug: 'true'}
+      const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+      const s: UrlSegment[] = g.segments; // returns 2 segments 'team' and '33'
+      console.log(g.children[PRIMARY_OUTLET].segments); // returns 2 segments 'user' and 'victor'
+      console.log(g.children['support'].segments); // return 1 segment 'help'
+      console.log(g.segments) // return 2 segments team and
+ }
+```
+
 
 ## Angular 8
 * Releasing March/April 2019
