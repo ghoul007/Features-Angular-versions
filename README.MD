@@ -148,7 +148,8 @@ RouterModule.forRoot([
 ```
 
 
-* Allow passing state to routerLink Directives in the Router
+* Allow passing state to routerLink Directives in the Router ([Send data through routing paths in Angular
+](https://stackoverflow.com/a/44865817/11270840))
     - Imperative navigation using the router.navigateByUrl()
     ```js
     this.router.navigateByUrl('/123', { state: { hello: 'world' } });
@@ -174,6 +175,11 @@ RouterModule.forRoot([
     ```
     [See more]( https://netbasal.com/set-state-object-when-navigating-in-angular-7-2-b87c5b977bb)
 * Allow passing state to NavigationExtras in the Router
+```js
+  this.state$ =  this.router.events.pipe(
+      filter(e => e instanceof NavigationStart),
+      map(() => this.router.getCurrentNavigation().extras.state)
+```
 * Added support for SASS
 * Resolve generated Sass/Less files to .css inputs
 * Added an ng-new command that builds the project with Bazel
