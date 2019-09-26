@@ -180,7 +180,8 @@ RouterModule.forRoot([
       filter(e => e instanceof NavigationStart),
       map(() => this.router.getCurrentNavigation().extras.state)
 ```
+
 * Added support for SASS
-* Resolve generated Sass/Less files to .css inputs
-* Added an ng-new command that builds the project with Bazel
+* Now compiler-cli resolve generated Sass/Less files to .css inputs that is a good feature if users might have run the CSS Preprocessor tool before the Angular compiler.
+* Added an ng-new command that builds the project with Bazel [See more](https://blog.ninja-squad.com/2019/05/14/build-your-angular-application-with-bazel/)
 * Export NumberValueAccessor & RangeValueAccessor directives
