@@ -131,8 +131,48 @@ class AppModule implements DoBootstrap {
 * Releasing March/April 2019
 * Being smaller, faster and easier to use
 * Added Support for TypeScript 3.2
-* Added pathParamsOrQueryParamsChange mode for runGuardsAndResolvers in the Router
+* Added pathParamsOrQueryParamsChange mode for runGuardsAndResolvers in the Router:
+
+This is a new option is basically the same as the pathParamsChange, but it also takes ***the query params*** into consideration.
+[See more](https://juristr.com/blog/2019/01/Explore-Angular-Routers-runGuardsAndResolvers/)
+```js
+RouterModule.forRoot([
+  ...
+  {
+    path: 'home/:id',
+    component: HomeComponent,
+    ...
+    runGuardsAndResolvers: 'pathParamsOrQueryParamsChange'
+  }
+])
+```
+
+
 * Allow passing state to routerLink Directives in the Router
+    - Imperative navigation using the router.navigateByUrl()
+    ```js
+    this.router.navigateByUrl('/123', { state: { hello: 'world' } });
+    ```
+    - Declarative navigation using the routerLink directive, passing a state input
+    ```html
+    <a routerLink="/details" [state]="{ hello: 'world' }">Go</a>`,
+    ```
+    -Read it from the window.history.state property after the navigation has finished. You can use it to read the state from inside the component that you are navigating to
+    ```js
+      ngOnInit() {
+    this.state$ = this.activatedRoute.paramMap
+      .pipe(map(() => window.history.state))
+  }
+  ```
+
+    - Read it from the NavigationExtras property of the NavigationStart event. This one is useful in top level components, because you cannot listen to the NavigationStart event from inside the component that you are navigating to
+    ```js
+      this.state$ =  this.router.events.pipe(
+      filter(e => e instanceof NavigationStart),
+      map(() => this.router.getCurrentNavigation().extras.state)
+    )
+    ```
+    [See more]( https://netbasal.com/set-state-object-when-navigating-in-angular-7-2-b87c5b977bb)
 * Allow passing state to NavigationExtras in the Router
 * Added support for SASS
 * Resolve generated Sass/Less files to .css inputs
